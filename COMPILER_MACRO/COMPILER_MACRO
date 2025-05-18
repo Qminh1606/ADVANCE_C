@@ -1,0 +1,38 @@
+# BÀI 1: COMPILER - MACROS
+## 1. COMPILER (TRÌNH BIÊN DỊCH)
+Các ngôn ngữ hiện nay được gọi là ngôn ngữ bậc cao
+IDE thường tích hợp editor(trình soạn thảo) và compiler(trình biên dịch)
+Mỗi ngôn ngữ lập trình sẽ có compiler khác nhau
+### 4 GIAI ĐOẠN CHÍNH
+### Giai đoạn 1: Preprocessor(tiền xử lý)
+Từ cái file .c .h thành file .i 
+(gcc -E main.c -o main.i)
+#### Quá trình tiền xử lý có 4 chức năng chính:
+- Include header: thêm file nào vào thì qua file .i coppy toàn bộ mã nguồn vào file .i
+- Expand macro: thay thế file macro vào file .i
+- Delete comment
+- Còn lại giữ nguyên qua file .i 
+## 2. MACRO
+Macros là từ hay chỉ thị dùng để chỉ thông tin được xử lý ở quá trình tiền xử lý
+## Macros chia làm 3 nhóm chính:
+- Chỉ thị bao hàm tệp (#include)
+- Chỉ thị định nghĩa, hủy định nghĩa (#define, #undef)
+- Chỉ thị biên dịch có điều kiện (#if, #elif, #else, #ifdef, #ifndef, #endif)
+### Chỉ Thị Bao Hàm Tệp (#include)
+- Chỉ thị #include dùng để chèn nội dung của một file vào mã nguồn chương trình 
+- Phân biệt <> (những thư viện chuẩn đã được viết sẵn, muốn thêm vào để sử dụng thì để trong <>) và "" (file nào mình tự viết và muốn sử dụng thì để trong "")
+- Tái sử dụng mã nguồn
+- Phân chia chương trình thành các phần nhỏ, giúp quản lý mã nguồn hiệu quả
+### Chỉ Thị Định Nghĩa (#define)
+- Macro là một khái niệm dùng để định nghĩa một tập hợp các hướng dẫn tiền xử lý
+- Dùng để thay thế một chuỗi mã nguồn bằng một chuỗi khác trước khi chương trình biên dịch 
+- Giúp giảm lặp lại mã để bảo trì chương trình 
+- Macro được định nghĩa bằng cách sử dụng chỉ thị tiền xử lý #define
+### Chỉ Thị Hủy Định Nghĩa (#undef)
+- Chỉ thị #undef dùng để hủy định nghĩa của một macro đã được định nghĩa trước đó bằng #define
+### Chỉ Thị Biên Dịch Có Điều Kiện (#if, #elif, #else)
+- #if sử dụng để bắt đầu một điều kiện tiền xử lý
+- Nếu điều kiện trong #if là đúng, các dòng mã nguồn sau #if sẽ được biên dịch 
+- Nếu sai, các dòng mã nguồn sẽ bị bỏ qua đến khi gặp #endif
+- #elif dùng để thêm một điều kiện mới khi điều kiện trước đó trong #if hoặc #elif là sai
+- #else dùng khi không có điều kiện nào ở trên đúng
